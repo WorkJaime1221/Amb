@@ -1,0 +1,43 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span class="titulo">{{ titulo }}</span>
+                    <form class="mt-4" [formGroup]="productoForm" (ngSubmit)="agregarProducto()">
+                        <div class="mb-3">
+                            <input type="text" class="form-control form-control-lg border border-dark" placeholder="Nombre" formControlName="producto">
+                            <div class="text-danger" *ngIf="productoForm.get('producto')?.hasError('required') && productoForm.get('producto')?.touched ">
+                                <span>El nombre es <strong>obligatorio</strong></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control form-control-lg border border-dark" placeholder="Empleo" formControlName="categoria">
+                            <div class="text-danger" *ngIf="productoForm.get('categoria')?.hasError('required') && productoForm.get('categoria')?.touched ">
+                                <span>El empleo a aplicar es <strong>obligatorio</strong></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control form-control-lg border border-dark" placeholder="ubicacion" formControlName="ubicacion">
+                            <div class="text-danger" *ngIf="productoForm.get('ubicacion')?.hasError('required') && productoForm.get('ubicacion')?.touched ">
+                                <span>La ubicacion es <strong>obligatoria</strong></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="number" class="form-control form-control-lg border border-dark" placeholder="Identificación" formControlName="precio">
+                            <div class="text-danger" *ngIf="productoForm.get('precio')?.hasError('required') && productoForm.get('precio')?.touched ">
+                                <span>La identificación es <strong>obligatoria</strong></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <button class="btn btn-secondary btn-lg float-start" routerLink="/">Volver</button>
+                            <button class="btn btn-success btn-lg float-end" type="submit" [disabled]="productoForm.invalid">Aceptar</button>
+                        </div>
+                        <p text-aling: center>Presentado por: Sara Cobaleeda - Maria Saavedra - Jaime Lemus</p>
+                        <img src="https://pbs.twimg.com/profile_images/2224353808/Escudopngmini_400x400.png" width="100 px" height="100 px">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

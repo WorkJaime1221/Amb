@@ -1,0 +1,39 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span class="titulo">Listado de hoja de vida</span>
+                    <button class="btn btn-danger float-end" routerLink='crear-producto'>Registrar</button>
+                    <table class="table table-stripped table-dark mt-5 table-bordered" *ngIf="listProductos.length>0">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Trabajo</th>
+                                <th scope="col">Ubicación</th>
+                                <th scope="col">Identificación</th>
+                                <th scope="col">Editar</th>
+                                <th scope="col">Elimina</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let producto of listProductos">
+                                <th>{{producto.nombre}}</th>
+                                <td>{{producto.categoria}}</td>
+                                <td>{{producto.ubicacion}}</td>
+                                <td>{{producto.precio}}</td>
+                                <td><i class="fa fa-solid fa-pen-to-square text-primary" [routerLink]="['/editar-producto', producto._id]"></i></td>
+                                <td>
+                                    <tr><i (click)="eliminarProducto(producto._id)" class="fa fa-trash text-danger text-primary "></i></tr>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p text-aling: center>Presentado por: Sara Cobaleeda - Maria Saavedra - Jaime Lemus</p>
+                    <img src="https://pbs.twimg.com/profile_images/2224353808/Escudopngmini_400x400.png" width="100 px" height="100 px">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
